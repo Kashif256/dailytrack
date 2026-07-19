@@ -186,3 +186,302 @@ button{
     border-radius:12px;
 
 }
+.floating-btn{
+    position:fixed;
+    right:25px;
+    bottom:90px;
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    border:none;
+
+    background:#4f46e5;
+
+    color:white;
+
+    font-size:24px;
+
+    box-shadow:0 10px 25px rgba(79,70,229,.35);
+
+    transition:.3s;
+}
+
+.floating-btn:hover{
+    transform:scale(1.08);
+}
+
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.modal{
+
+    width:90%;
+
+    max-width:420px;
+
+    background:white;
+
+    padding:25px;
+
+    border-radius:18px;
+
+}
+
+.modal h2{
+    margin-bottom:20px;
+}
+
+.modal select{
+
+    width:100%;
+
+    padding:12px;
+
+    margin-top:15px;
+
+    border-radius:10px;
+
+    border:1px solid #ddd;
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-top:20px;
+}
+
+.cancel-btn{
+
+    background:#ddd;
+
+    color:black;
+}
+
+.save-btn{
+
+    background:#4f46e5;
+
+    color:white;
+}
+.habit-card{
+    background:white;
+    padding:18px;
+    border-radius:16px;
+    margin-top:15px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+}
+
+.habit-card:hover{
+    transform:translateY(-3px);
+}
+
+.habit-info h3{
+    margin:0;
+}
+
+.category{
+    display:inline-block;
+
+    margin-top:8px;
+
+    padding:5px 10px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+/* Category Colors */
+
+.personal{
+    background:#ede9fe;
+    color:#6d28d9;
+}
+
+.health{
+    background:#dcfce7;
+    color:#15803d;
+}
+
+.study{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.fitness{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.religion{
+    background:#fef3c7;
+    color:#b45309;
+}
+
+.habit-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.delete-btn{
+    border:none;
+    background:#ef4444;
+    color:white;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.delete-btn:hover{
+    background:#dc2626;
+}
+/* ---------- Header ---------- */
+
+.header-card{
+    background:linear-gradient(135deg,#4f46e5,#6366f1);
+
+    color:white;
+
+    border-radius:25px;
+
+    padding:25px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 10px 25px rgba(79,70,229,.25);
+}
+
+.header-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header-card h1{
+    font-size:30px;
+}
+
+.header-card p{
+    opacity:.9;
+    margin-top:10px;
+}
+
+.header-card h2{
+    margin-top:15px;
+}
+
+.time-icon{
+    font-size:26px;
+}
+
+/* ---------- Progress ---------- */
+
+.progress-card-new{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+.progress-left h1{
+
+    font-size:42px;
+
+    color:#4f46e5;
+
+}
+
+.progress-left p{
+
+    color:#777;
+
+}
+
+.progress-circle{
+
+    width:110px;
+
+    height:110px;
+
+    border-radius:50%;
+
+    background:conic-gradient(
+        #4f46e5 0deg,
+        #4f46e5 calc(var(--progress)*3.6deg),
+        #ddd calc(var(--progress)*3.6deg)
+    );
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.circle-inner{
+
+    width:80px;
+
+    height:80px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-weight:bold;
+
+    font-size:20px;
+
+}

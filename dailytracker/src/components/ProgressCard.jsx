@@ -1,24 +1,21 @@
 function ProgressCard({ percent, completed, total }) {
   return (
-    <div className="progress-card">
+    <div className="progress-card-new">
+      <div className="progress-left">
+        <h3>Today's Progress</h3>
 
-      <h3>Today's Progress</h3>
+        <h1>{percent}%</h1>
 
-      <div className="progress-bar">
-        <div
-          className="progress-fill"
-          style={{
-            width: `${percent}%`,
-          }}
-        ></div>
+        <p>
+          {completed} of {total} tasks completed
+        </p>
       </div>
 
-      <h2>{percent}%</h2>
-
-      <p>
-        {completed} / {total} Completed
-      </p>
-
+      <div className="progress-circle" style={{ "--progress": percent }}>
+        <div className="circle-inner">
+          {percent}%
+        </div>
+      </div>
     </div>
   );
 }
