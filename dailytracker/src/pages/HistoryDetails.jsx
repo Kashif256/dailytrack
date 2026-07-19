@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { getDailyData, calculateProgress } from "../utils/storage";
+import BackButton from "../components/BackButton";
 
 function HistoryDetails() {
   const { date } = useParams();
@@ -10,7 +11,9 @@ function HistoryDetails() {
 
   if (!day) {
     return (
+    
       <div className="container">
+        <BackButton />
         <h2>No data found.</h2>
 
         <Link to="/history">← Back</Link>
@@ -23,7 +26,7 @@ function HistoryDetails() {
   return (
     <div className="container">
 
-      <Link to="/history">← Back</Link>
+      <BackButton />
 
       <h1>{date}</h1>
 

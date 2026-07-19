@@ -8,6 +8,7 @@ import AddHabitModal from "../components/AddHabitModal";
 
 import PrayerSection from "../components/PrayerSection";
 import HabitSection from "../components/HabitSection";
+import StreakCard from "../components/StreakCard";
 
 import { today } from "../utils/date";
 import { getTodayChecklist } from "../utils/checklist";
@@ -107,7 +108,7 @@ function Home() {
         completed={progress.completed}
         total={progress.total}
       />
-
+      
       <PrayerSection
         prayers={checklist.prayers}
         onToggle={togglePrayer}

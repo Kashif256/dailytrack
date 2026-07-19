@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { getDailyData, calculateProgress } from "../utils/storage";
+import BackButton from "../components/BackButton";
 
 function History() {
   const dailyData = getDailyData();
@@ -7,7 +8,10 @@ function History() {
   const dates = Object.keys(dailyData).sort().reverse();
 
   return (
+
+
     <div className="container">
+      <BackButton />
       <h1>📅 History</h1>
 
       {dates.length === 0 ? (
@@ -36,6 +40,7 @@ function History() {
                   View Details
                 </Link>
               </div>
+
             </div>
           );
         })

@@ -14,7 +14,7 @@ function BottomNav() {
         <span>Home</span>
       </NavLink>
 
-      <NavLink to="/history">
+      <NavLink to="/calendar">
         <FaClockRotateLeft />
         <span>History</span>
       </NavLink>
