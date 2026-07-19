@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import {
   FaHouse,
   FaClockRotateLeft,
@@ -8,25 +8,27 @@ import {
 
 function BottomNav() {
   return (
-    <div className="bottom-nav">
-
-      <Link to="/">
+    <nav className="bottom-nav">
+      <NavLink to="/">
         <FaHouse />
-      </Link>
+        <span>Home</span>
+      </NavLink>
 
-      <Link to="/history">
+      <NavLink to="/history">
         <FaClockRotateLeft />
-      </Link>
+        <span>History</span>
+      </NavLink>
 
-      <Link to="/stats">
+      <NavLink to="/stats">
         <FaChartSimple />
-      </Link>
+        <span>Stats</span>
+      </NavLink>
 
-      <Link to="/settings">
+      <NavLink to="/settings">
         <FaGear />
-      </Link>
-
-    </div>
+        <span>Settings</span>
+      </NavLink>
+    </nav>
   );
 }
 

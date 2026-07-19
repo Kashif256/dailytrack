@@ -1,7 +1,8 @@
 function Stats() {
   return (
-    <div>
-      <h1>📊 Statistics Page</h1>
+    <div className="container">
+      <h1>📊 Statistics</h1>
+      <p>Coming Soon...</p>
     </div>
   );
 }

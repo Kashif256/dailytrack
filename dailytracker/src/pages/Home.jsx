@@ -5,7 +5,9 @@ import BottomNav from "../components/BottomNav";
 import ProgressCard from "../components/ProgressCard";
 import FloatingButton from "../components/FloatingButton";
 import AddHabitModal from "../components/AddHabitModal";
-import HabitCard from "../components/HabitCard";
+
+import PrayerSection from "../components/PrayerSection";
+import HabitSection from "../components/HabitSection";
 
 import { today } from "../utils/date";
 import { getTodayChecklist } from "../utils/checklist";
@@ -21,17 +23,16 @@ function Home() {
   const date = today();
 
   const [checklist, setChecklist] = useState(getTodayChecklist());
-
   const [showModal, setShowModal] = useState(false);
 
   // Toggle Prayer
   const togglePrayer = (id) => {
     const updated = {
       ...checklist,
-      prayers: checklist.prayers.map((p) =>
-        p.id === id
-          ? { ...p, completed: !p.completed }
-          : p
+      prayers: checklist.prayers.map((prayer) =>
+        prayer.id === id
+          ? { ...prayer, completed: !prayer.completed }
+          : prayer
       ),
     };
 
@@ -43,10 +44,10 @@ function Home() {
   const toggleHabit = (id) => {
     const updated = {
       ...checklist,
-      habits: checklist.habits.map((h) =>
-        h.id === id
-          ? { ...h, completed: !h.completed }
-          : h
+      habits: checklist.habits.map((habit) =>
+        habit.id === id
+          ? { ...habit, completed: !habit.completed }
+          : habit
       ),
     };
 
@@ -56,14 +57,11 @@ function Home() {
 
   // Add Habit
   const addHabit = (habit) => {
-    // Save in master habit list
     const habits = getHabits();
 
     habits.push(habit);
-
     saveHabits(habits);
 
-    // Add instantly to today's checklist
     const updated = {
       ...checklist,
       habits: [
@@ -76,13 +74,11 @@ function Home() {
     };
 
     setChecklist(updated);
-
     updateTodayData(date, updated);
   };
 
   // Delete Habit
   const deleteHabit = (id) => {
-    // Remove from today's checklist
     const updated = {
       ...checklist,
       habits: checklist.habits.filter(
@@ -91,10 +87,8 @@ function Home() {
     };
 
     setChecklist(updated);
-
     updateTodayData(date, updated);
 
-    // Remove from master habits
     const masterHabits = getHabits().filter(
       (habit) => habit.id !== id
     );
@@ -114,47 +108,18 @@ function Home() {
         total={progress.total}
       />
 
-      {/* Prayer Tracker */}
-
-      <div className="habit-list">
-        <h2>🕌 Prayer Tracker</h2>
-
-        {checklist.prayers.map((prayer) => (
-          <div
-            className="habit-item"
-            key={prayer.id}
-          >
-            <label>
-              <input
-                type="checkbox"
-                checked={prayer.completed}
-                onChange={() =>
-                  togglePrayer(prayer.id)
-                }
-              />
-
-              {prayer.name}
-            </label>
-          </div>
-        ))}
-      </div>
+      <PrayerSection
+        prayers={checklist.prayers}
+        onToggle={togglePrayer}
+      />
 
       <br />
 
-      {/* Daily Habits */}
-
-      <div className="habit-list">
-        <h2>⭐ Daily Habits</h2>
-
-        {checklist.habits.map((habit) => (
-          <HabitCard
-            key={habit.id}
-            habit={habit}
-            onToggle={toggleHabit}
-            onDelete={deleteHabit}
-          />
-        ))}
-      </div>
+      <HabitSection
+        habits={checklist.habits}
+        onToggle={toggleHabit}
+        onDelete={deleteHabit}
+      />
 
       <BottomNav />
 

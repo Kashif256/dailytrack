@@ -1,22 +1,47 @@
-import Header from "../components/Header";
-import ProgressCard from "../components/ProgressCard";
-import HabitList from "../components/HabitList";
-import BottomNav from "../components/BottomNav";
+import { Link } from "react-router-dom";
+import { getDailyData, calculateProgress } from "../utils/storage";
 
-function Home() {
+function History() {
+  const dailyData = getDailyData();
+
+  const dates = Object.keys(dailyData).sort().reverse();
+
   return (
     <div className="container">
+      <h1>📅 History</h1>
 
-      <Header />
+      {dates.length === 0 ? (
+        <p>No history available.</p>
+      ) : (
+        dates.map((date) => {
+          const progress = calculateProgress(dailyData[date]);
 
-      <ProgressCard />
+          return (
+            <div className="history-card" key={date}>
+              <div>
+                <h3>{date}</h3>
 
-      <HabitList />
+                <p>
+                  {progress.completed} / {progress.total} Completed
+                </p>
+              </div>
 
-      <BottomNav />
+              <div className="history-right">
+                <h2>{progress.percent}%</h2>
 
+                <Link
+                  to={`/history/${date}`}
+                  className="view-btn"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
 
-export default Home;
+export default History;
