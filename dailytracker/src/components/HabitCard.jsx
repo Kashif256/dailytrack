@@ -21,6 +21,7 @@ function HabitCard({ habit, onToggle, onDelete }) {
         <button
           className="delete-btn"
           onClick={() => onDelete(habit.id)}
+          title="Delete Habit"
         >
           <FaTrash />
         </button>

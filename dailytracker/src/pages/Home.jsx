@@ -80,6 +80,13 @@ function Home() {
 
   // Delete Habit
   const deleteHabit = (id) => {
+    const confirmDelete = window.confirm(
+      "🗑️ Are you sure you want to delete this habit?"
+    );
+
+    if (!confirmDelete) return;
+
+    // Remove from today's checklist
     const updated = {
       ...checklist,
       habits: checklist.habits.filter(
@@ -90,6 +97,7 @@ function Home() {
     setChecklist(updated);
     updateTodayData(date, updated);
 
+    // Remove from saved habits
     const masterHabits = getHabits().filter(
       (habit) => habit.id !== id
     );
@@ -108,7 +116,9 @@ function Home() {
         completed={progress.completed}
         total={progress.total}
       />
-      
+
+      <StreakCard />
+
       <PrayerSection
         prayers={checklist.prayers}
         onToggle={togglePrayer}
